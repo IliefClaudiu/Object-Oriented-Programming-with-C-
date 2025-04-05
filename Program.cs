@@ -17,8 +17,22 @@ Console.WriteLine(Text.Language.Welcome,player.Name);
 
 var house = new House(player);
 house.CreateRooms(3, 3);
+house.DecorateRooms();
+
+var items = new List<Item>()
+{
+    new Key(house),
+    new Chest(new[] {new Gold(100)}, house)
+};
+
+house.PopulateRooms(items);
+
 
 Actions.Instance.Register(new Go(house));
+Actions.Instance.Register(new BackPack(player));
+Actions.Instance.Register(new Take(house));
+Actions.Instance.Register(new Use(house));
+
 house.GoToStartingRoom();
 
 var run = true;

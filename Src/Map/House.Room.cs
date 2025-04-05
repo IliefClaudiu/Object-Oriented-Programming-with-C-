@@ -19,7 +19,7 @@ public partial class House
             var tmpRoom = new Room();
             var c = i % Width;
             var r = i / Width;
-            tmpRoom.Name = String.Format(Text.Language.DefaultName, i, c, r);
+            tmpRoom.Name = String.Format(Text.Language.DefaultRoomName, i, c, r);
 
             if (c < Width - 1)
             {
